@@ -1,4 +1,4 @@
-name: ukk_2025_suferdi
+name: flutter_application_1
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -9,7 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  supabase_flutter: ^2.8.3
 
 dev_dependencies:
   flutter_test:
@@ -18,16 +17,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-  
-  
-    
-
-
-
-
-
-
-
-
-
