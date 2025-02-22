@@ -67,13 +67,21 @@ class _UpdatePelangganState extends State<UpdatePelanggan> {
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
-        backgroundColor: const Color.fromARGB(255, 48, 119, 50),
+        backgroundColor: Colors.brown,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
@@ -88,25 +96,36 @@ class _UpdatePelangganState extends State<UpdatePelanggan> {
               ElevatedButton(
                 onPressed: updatePelanggan,
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 48, 119, 50)),
+                    backgroundColor: Colors.brown),
                 child:
                     const Text('Update', style: TextStyle(color: Colors.white)),
               ),
             ],
           ),
         ),
-      ),
+      ),)
     );
   }
 
   Widget _buildTextField(TextEditingController controller, String label,
-      {bool isNumber = false}) {
+      {bool isNumber = false, bool isPassword = false}) {
     return TextFormField(
       controller: controller,
       keyboardType: isNumber ? TextInputType.number : TextInputType.text,
       inputFormatters: isNumber ? [FilteringTextInputFormatter.digitsOnly] : [],
-      decoration:
-          InputDecoration(labelText: label, border: const OutlineInputBorder()),
+      obscureText: isPassword,
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        labelText: label,
+        border: const OutlineInputBorder(),
+        suffixIcon: isPassword
+            ? IconButton(
+                icon: Icon(Icons.visibility, color: Colors.brown),
+                onPressed: () {},
+              )
+            : null,
+      ),
       validator: (value) => value!.isEmpty ? '$label tidak boleh kosong' : null,
     );
   }

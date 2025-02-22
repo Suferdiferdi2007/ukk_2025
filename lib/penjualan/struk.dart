@@ -28,7 +28,7 @@ class Struk extends StatelessWidget {
           children: [
             pw.Center(
               child: pw.Text(
-                'Toko Buah',
+                'Bubblelicious Cafe',
                 style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold),
               ),
             ),
@@ -98,7 +98,7 @@ class Struk extends StatelessWidget {
 
     await Printing.sharePdf(
       bytes: await pdf.save(),
-      filename: 'Toko Buah.pdf',
+      filename: 'Bubblelicious Cafe.pdf',
     );
   }
 
@@ -121,7 +121,7 @@ class Struk extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Center(
                 child: Text(
-                  'Toko Buah',
+                  'Bubblelicious Cafe',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),

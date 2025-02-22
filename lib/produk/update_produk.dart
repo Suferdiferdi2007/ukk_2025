@@ -67,13 +67,21 @@ class _UpdateProdukState extends State<UpdateProduk> {
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
-        backgroundColor: const Color.fromARGB(255, 48, 119, 50),
+        backgroundColor: Colors.brown,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
@@ -88,14 +96,14 @@ class _UpdateProdukState extends State<UpdateProduk> {
               ElevatedButton(
                 onPressed: updateProduk,
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 48, 119, 50)),
+                    backgroundColor: Colors.brown),
                 child:
                     const Text('Update', style: TextStyle(color: Colors.white)),
               ),
             ],
           ),
         ),
-      ),
+      ),)
     );
   }
 
@@ -105,8 +113,21 @@ class _UpdateProdukState extends State<UpdateProduk> {
       controller: controller,
       keyboardType: isNumber ? TextInputType.number : TextInputType.text,
       inputFormatters: isNumber ? [FilteringTextInputFormatter.digitsOnly] : [],
-      decoration:
-          InputDecoration(labelText: label, border: const OutlineInputBorder()),
+      decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
+        labelText: label,
+        border: const OutlineInputBorder(),
+        suffixIcon: label == 'Password'
+            ? IconButton(
+                icon: Icon(
+                  Icons.visibility,
+                  color: Colors.brown,
+                ),
+                onPressed: () {},
+              )
+            : null,
+      ),
       validator: (value) => value!.isEmpty ? '$label tidak boleh kosong' : null,
     );
   }

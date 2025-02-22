@@ -62,7 +62,7 @@ class _IndexUserState extends State<IndexUser> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 48, 119, 50),
+        backgroundColor: Colors.brown,
         title: const Text("Daftar User", style: TextStyle(color: Colors.white)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
@@ -79,7 +79,7 @@ class _IndexUserState extends State<IndexUser> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 48, 119, 50)),
+                          color: Colors.brown),
                     ),
                   )
                 : ListView.builder(
@@ -88,7 +88,7 @@ class _IndexUserState extends State<IndexUser> {
                     itemBuilder: (context, index) {
                       final p = user[index];
                       return Card(
-                        color: const Color.fromARGB(255, 48, 119, 50),
+                        color: Colors.brown,
                         elevation: 4,
                         margin: const EdgeInsets.symmetric(vertical: 8),
                         shape: RoundedRectangleBorder(
@@ -155,7 +155,7 @@ class _IndexUserState extends State<IndexUser> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(context,
             MaterialPageRoute(builder: (context) => const InsertUser())),
-        backgroundColor: const Color.fromARGB(255, 48, 119, 50),
+        backgroundColor: Colors.brown,
         child: const Icon(Icons.add, color: Colors.white),
       ),
     );

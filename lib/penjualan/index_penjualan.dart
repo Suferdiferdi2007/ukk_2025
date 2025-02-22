@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/penjualan/struk.dart';
-import 'package:flutter_application_1/penjualan/update_penjualan.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:intl/intl.dart';
 
@@ -27,11 +26,10 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
 
   Future<void> ambilPenjualan() async {
     try {
-      // Ambil data penjualan dengan NamaPelanggan dari tabel pelanggan
       final data = await supabase
           .from('penjualan')
           .select('PenjualanID, TanggalPenjualan, TotalHarga, pelanggan(NamaPelanggan)')
-          .order('TanggalPenjualan', ascending: false); // Urutkan berdasarkan tanggal terbaru
+          .order('TanggalPenjualan', ascending: false);
 
       setState(() {
         penjualanList = List<Map<String, dynamic>>.from(data);
@@ -44,17 +42,16 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
   }
 
   void pencarianPenjualan() {
-  setState(() {
-    mencariPenjualan = penjualanList.where((penjualan) {
-      final namaPelanggan = penjualan['pelanggan']?['NamaPelanggan'] ?? ''; // Cegah null
-      final penjualanID = penjualan['PenjualanID'].toString();
+    setState(() {
+      mencariPenjualan = penjualanList.where((penjualan) {
+        final namaPelanggan = penjualan['pelanggan']?['NamaPelanggan'] ?? '';
+        final penjualanID = penjualan['PenjualanID'].toString();
 
-      return namaPelanggan.toLowerCase().contains(cari.text.toLowerCase()) ||
-          penjualanID.contains(cari.text);
-    }).toList();
-  });
-}
-
+        return namaPelanggan.toLowerCase().contains(cari.text.toLowerCase()) ||
+            penjualanID.contains(cari.text);
+      }).toList();
+    });
+  }
 
   Future<void> hapusPenjualan(int id) async {
     await supabase.from('penjualan').delete().eq('PenjualanID', id);
@@ -95,9 +92,9 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
               decoration: InputDecoration(
                 labelText: "Cari Penjualan...",
                 labelStyle:
-                    const TextStyle(color: Color.fromARGB(255, 48, 119, 50)),
+                    const TextStyle(color: Colors.brown),
                 prefixIcon: const Icon(Icons.search,
-                    color: Color.fromARGB(255, 48, 119, 50)),
+                    color: Colors.brown),
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
@@ -111,7 +108,7 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 48, 119, 50)),
+                          color: Colors.brown),
                     ),
                   )
                 : ListView.builder(
@@ -123,7 +120,7 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
                           pen['pelanggan']?['NamaPelanggan'] ?? 'Tidak tersedia';
 
                       return Card(
-                        color: const Color.fromARGB(255, 48, 119, 50),
+                        color: Colors.brown,
                         elevation: 4,
                         margin: const EdgeInsets.symmetric(vertical: 8),
                         shape: RoundedRectangleBorder(
@@ -133,17 +130,16 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
                           child: Row(
                             children: [
                               Checkbox(
-  value: dipilihItem[index],
-  activeColor: Colors.white, // Warna latar saat dicentang
-  checkColor: const Color.fromARGB(255, 48, 119, 50), // Warna centang
-  side: const BorderSide(color: Colors.white, width: 2), // Border putih dengan ketebalan 2
-  onChanged: (bool? value) {
-    setState(() {
-      dipilihItem[index] = value ?? false;
-    });
-  },
-),
-
+                                value: dipilihItem[index],
+                                activeColor: Colors.white,
+                                checkColor: Colors.brown,
+                                side: const BorderSide(color: Colors.white, width: 2),
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    dipilihItem[index] = value ?? false;
+                                  });
+                                },
+                              ),
                               const SizedBox(width: 10),
                               Expanded(
                                 child: Column(
@@ -165,39 +161,6 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
                                             fontSize: 16, color: Colors.white)),
                                   ],
                                 ),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  IconButton(
-                                    icon: const Icon(Icons.edit,
-                                        color: Colors.blue, shadows: [
-                                      Shadow(
-                                          color: Colors.white,
-                                          blurRadius: 5,
-                                          offset: Offset(2, 2))
-                                    ]),
-                                    onPressed: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              UpdatePenjualan(
-                                                  PenjualanID:
-                                                      pen['PenjualanID'] ?? 0)),
-                                    ),
-                                  ),
-                                  IconButton(
-                                    icon: const Icon(Icons.delete,
-                                        color: Colors.red, shadows: [
-                                      Shadow(
-                                          color: Colors.white,
-                                          blurRadius: 5,
-                                          offset: Offset(2, 2))
-                                    ]),
-                                    onPressed: () =>
-                                        konfirmasiHapus(pen['PenjualanID']),
-                                  ),
-                                ],
                               ),
                             ],
                           ),
@@ -237,7 +200,7 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
                 },
                 child: const Text('Checkout',
                     style: TextStyle(
-                        fontSize: 18, color: Color.fromARGB(255, 48, 119, 50))),
+                        fontSize: 18, color: Colors.brown)),
               ),
             ),
         ],

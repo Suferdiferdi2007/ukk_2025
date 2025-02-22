@@ -67,27 +67,44 @@ class _InsertProdukState extends State<InsertProduk> {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text('Tambah Produk', style: TextStyle(color: Colors.white)),
-        backgroundColor: const Color.fromARGB(255, 48, 119, 50),
+        backgroundColor: Colors.brown, // Coklat tua untuk kesan elegan
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: formKey,
-          child: Column(
-            children: [
-              _textField(nama, 'Nama Produk'),
-              const SizedBox(height: 10),
-              _textField(harga, 'Harga', isNumber: true),
-              const SizedBox(height: 10),
-              _textField(stok, 'Stok', isNumber: true),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: simpan,
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 48, 119, 50)),
-                child: const Text('Simpan', style: TextStyle(color: Colors.white)),
-              ),
-            ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                _textField(nama, 'Nama Produk'),
+                const SizedBox(height: 10),
+                _textField(harga, 'Harga', isNumber: true),
+                const SizedBox(height: 10),
+                _textField(stok, 'Stok', isNumber: true),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: simpan,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.brown, // Coklat kopi
+                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: const Text(
+                    'Simpan',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -103,7 +120,17 @@ Widget _textField(TextEditingController controller, String label, {bool isNumber
     inputFormatters: isNumber ? [FilteringTextInputFormatter.digitsOnly] : [],
     decoration: InputDecoration(
       labelText: label,
-      border: const OutlineInputBorder(),
+      labelStyle: TextStyle(color: Colors.brown.shade700), // Warna label coklat gelap
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: BorderSide(color: Colors.brown.shade600), // Outline warna coklat
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: BorderSide(color: Colors.brown.shade800), // Warna lebih gelap saat fokus
+      ),
+      filled: true,
+      fillColor: Colors.white, // Background input tetap putih agar kontras
     ),
     validator: (value) =>
         (value == null || value.isEmpty) ? '$label tidak boleh kosong' : null,

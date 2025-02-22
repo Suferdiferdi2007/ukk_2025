@@ -85,14 +85,14 @@ class _OrderState extends State<Order> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail Produk', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
-        backgroundColor: const Color.fromARGB(255, 48, 119, 50),
+        backgroundColor: Colors.brown.shade700,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
       ),
       body: Container(
-        decoration: const BoxDecoration(color: Color.fromARGB(255, 48, 119, 50)),
+        decoration: BoxDecoration(color: Colors.brown.shade200),
         child: Center(
           child: SizedBox(
             width: 300,
@@ -101,20 +101,21 @@ class _OrderState extends State<Order> {
               margin: const EdgeInsets.all(20),
               elevation: 8,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              color: Colors.brown.shade50,
               child: Padding(
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(produk['NamaProduk'] ?? 'Nama Produk Tidak Tersedia',
-                        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.brown)),
                     const SizedBox(height: 16),
-                    Text('Harga: Rp${produk['Harga'] ?? 0}', style: const TextStyle(fontSize: 18)),
-                    Text('Stok Tersedia: ${produk['Stok'] ?? 'Tidak Tersedia'}', style: const TextStyle(fontSize: 18)),
+                    Text('Harga: Rp${produk['Harga'] ?? 0}', style: const TextStyle(fontSize: 18, color: Colors.brown)),
+                    Text('Stok Tersedia: ${produk['Stok'] ?? 'Tidak Tersedia'}', style: const TextStyle(fontSize: 18, color: Colors.brown)),
                     const SizedBox(height: 16),
                     DropdownButton<int>(
                       value: selectedPelangganID,
-                      hint: const Text('Pilih Pelanggan'),
+                      hint: const Text('Pilih Pelanggan', style: TextStyle(color: Colors.brown)),
                       borderRadius: BorderRadius.circular(12),
                       onChanged: (value) {
                         setState(() {
@@ -124,7 +125,7 @@ class _OrderState extends State<Order> {
                       items: pelangganList.map((pelanggan) {
                         return DropdownMenuItem<int>(
                           value: pelanggan['PelangganID'],
-                          child: Text(pelanggan['NamaPelanggan']),
+                          child: Text(pelanggan['NamaPelanggan'], style: const TextStyle(color: Colors.brown)),
                         );
                       }).toList(),
                     ),
@@ -137,7 +138,7 @@ class _OrderState extends State<Order> {
                           icon: const Icon(Icons.remove_circle, size: 32, color: Colors.red),
                         ),
                         Text('$jumlahProduk',
-                            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.brown)),
                         IconButton(
                           onPressed: () => updateJumlahProduk(1),
                           icon: const Icon(Icons.add_circle, size: 32, color: Colors.green),
@@ -148,7 +149,7 @@ class _OrderState extends State<Order> {
                     ElevatedButton(
                       onPressed: jumlahProduk > 0 ? simpanPesanan : null,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: (jumlahProduk > 0) ? const Color.fromARGB(255, 48, 119, 50) : Colors.grey,
+                        backgroundColor: jumlahProduk > 0 ? Colors.brown.shade700 : Colors.grey,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         minimumSize: const Size(double.infinity, 50),
                       ),

@@ -18,29 +18,26 @@ class _InsertUserState extends State<InsertUser> {
 
   Future<void> simpan() async {
     if (formKey.currentState!.validate()) {
-      // Untuk mengcek apakah NamaPelanggan sudah ada
       final simpanData = await supabase
           .from('user')
           .select('Username')
           .eq('Username', username.text)
           .maybeSingle();
 
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Data berhasil disimpan')));
-
       if (simpanData != null) {
-        // Untuk menampilkan pesan error jika data sudah ada
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Tidak boleh ada data ganda!')),
         );
         return;
       }
 
-      // Untuk menyimpan data jika data belum ada
       await supabase.from('user').insert({
         'Username': username.text,
         'Password': pass.text,
       });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Data berhasil disimpan')));
 
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => const HomePage()));
@@ -56,9 +53,17 @@ class _InsertUserState extends State<InsertUser> {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text('Tambah User', style: TextStyle(color: Colors.white)),
-        backgroundColor: const Color.fromARGB(255, 48, 119, 50),
+        backgroundColor: Colors.brown,
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child:  Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
@@ -66,37 +71,44 @@ class _InsertUserState extends State<InsertUser> {
             children: [
               _textField(username, 'Username'),
               const SizedBox(height: 10),
-              _textField(pass, 'Password',
-                  isNumber:
-                      true), // isNumber: true = Input hanya akan menerima angka
+              _textField(pass, 'Password', isNumber: true),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: simpan,
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 48, 119, 50)),
-                child:
-                    const Text('Simpan', style: TextStyle(color: Colors.white)),
+                  backgroundColor: Colors.brown,
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                child: const Text('Simpan', style: TextStyle(color: Colors.white)),
               ),
             ],
           ),
         ),
-      ),
+      ),)
     );
   }
 }
 
 Widget _textField(TextEditingController controller, String label,
-      {bool isNumber = false}) {
-    // {bool isNumber = false} = Input akan menerima teks biasa
-    return TextFormField(
-      controller: controller,
-      keyboardType: isNumber ? TextInputType.number : TextInputType.text,
-      inputFormatters: isNumber
-          ? [FilteringTextInputFormatter.digitsOnly]
-          : [], // [FilteringTextInputFormatter.digitsOnly] = Mencegah pengguna mengetik huruf atau simbol
-      decoration:
-          InputDecoration(labelText: label, border: const OutlineInputBorder()),
-      validator: (value) =>
-          (value == null || value.isEmpty) ? '$label tidak boleh kosong' : null,
-    );
-  }
+    {bool isNumber = false}) {
+  return TextFormField(
+    controller: controller,
+    keyboardType: isNumber ? TextInputType.number : TextInputType.text,
+    inputFormatters: isNumber ? [FilteringTextInputFormatter.digitsOnly] : [],
+    decoration: InputDecoration(
+      labelText: label,
+      labelStyle: const TextStyle(color: Colors.brown),
+      filled: true,
+      fillColor: Colors.white,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: BorderSide.none,
+      ),
+    ),
+    validator: (value) =>
+        (value == null || value.isEmpty) ? '$label tidak boleh kosong' : null,
+  );
+}

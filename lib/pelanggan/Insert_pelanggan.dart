@@ -58,9 +58,17 @@ class _InsertPelangganState extends State<InsertPelanggan> {
         ),
         title: const Text('Tambah Pelanggan',
             style: TextStyle(color: Colors.white)),
-        backgroundColor: const Color.fromARGB(255, 48, 119, 50),
+        backgroundColor:  Colors.brown,
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+     child:  Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
@@ -77,14 +85,14 @@ class _InsertPelangganState extends State<InsertPelanggan> {
               ElevatedButton(
                 onPressed: simpan,
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 48, 119, 50)),
+                    backgroundColor:  Colors.brown),
                 child:
                     const Text('Simpan', style: TextStyle(color: Colors.white)),
               ),
             ],
           ),
         ),
-      ),
+      ),)
     );
   }
 }
@@ -98,8 +106,15 @@ Widget _textField(TextEditingController controller, String label,
       inputFormatters: isNumber
           ? [FilteringTextInputFormatter.digitsOnly]
           : [], // [FilteringTextInputFormatter.digitsOnly] = Mencegah pengguna mengetik huruf atau simbol
-      decoration:
-          InputDecoration(labelText: label, border: const OutlineInputBorder()),
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        labelText: label,
+        border: const OutlineInputBorder(),
+        suffixIcon: label.toLowerCase().contains("password")
+            ? Icon(Icons.visibility, color: Colors.brown)
+            : null,
+      ),
       validator: (value) =>
           (value == null || value.isEmpty) ? '$label tidak boleh kosong' : null,
     );

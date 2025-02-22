@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Bubblelicious Cafe',
       theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       home: const LoginPage(title: 'Login'),
@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.green.shade800, Colors.green.shade500],
+            colors: [Colors.brown.shade900, Colors.brown.shade500, Colors.brown.shade300],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Toko Buah',
+                  'Bubblelicious Cafe',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 32,
@@ -100,14 +100,14 @@ class _LoginPageState extends State<LoginPage> {
                 _textField(
                   controller: _passwordCtrl,
                   hintText: 'Password',
-                  icon: Icons.lock,
+                  icon: Icons.lock, 
                   isPassword: true,
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    foregroundColor: Colors.green.shade800,
+                    foregroundColor: Colors.brown,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -136,16 +136,16 @@ class _LoginPageState extends State<LoginPage> {
     return TextField(
       controller: controller,
       obscureText: isPassword ? !_isPasswordVisible : false,
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.brown),
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.white70),
-        prefixIcon: Icon(icon, color: Colors.white),
+        hintStyle: const TextStyle(color: Colors.brown),
+        prefixIcon: Icon(icon, color: Colors.brown.withOpacity(0.3)),
         suffixIcon: isPassword
             ? IconButton(
                 icon: Icon(
                   _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                  color: Colors.white,
+                  color: Colors.brown,
                 ),
                 onPressed: () {
                   setState(() {
@@ -155,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
               )
             : null,
         filled: true,
-        fillColor: Colors.white.withOpacity(0.2),
+        fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide.none,

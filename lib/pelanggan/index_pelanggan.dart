@@ -35,7 +35,6 @@ class _IndexPelangganState extends State<IndexPelanggan> {
     }
   }
 
-  // Digunakan untuk melakukan pencarian pelanggan berdasarkan input pengguna di Search Bar
   void pencarianPelanggan() {
     setState(() {
       mencariPelanggan = pelangganList
@@ -48,7 +47,7 @@ class _IndexPelangganState extends State<IndexPelanggan> {
 
   Future<void> hapusPelanggan(int id) async {
     await supabase.from('pelanggan').delete().eq('PelangganID', id);
-    ambilPelanggan(); // Refresh data setelah menghapus
+    ambilPelanggan();
   }
 
   void konfirmasiHapus(int id) {
@@ -84,9 +83,8 @@ class _IndexPelangganState extends State<IndexPelanggan> {
               controller: cari,
               decoration: InputDecoration(
                 labelText: "Cari Pelanggan...",
-                labelStyle: const TextStyle(color: Color.fromARGB(255, 48, 119, 50)),
-                prefixIcon: const Icon(Icons.search,
-                    color: Color.fromARGB(255, 48, 119, 50)),
+                labelStyle: const TextStyle(color: Colors.brown),
+                prefixIcon: const Icon(Icons.search, color: Colors.brown),
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
@@ -100,7 +98,7 @@ class _IndexPelangganState extends State<IndexPelanggan> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 48, 119, 50)),
+                          color: Colors.brown),
                     ),
                   )
                 : ListView.builder(
@@ -109,7 +107,7 @@ class _IndexPelangganState extends State<IndexPelanggan> {
                     itemBuilder: (context, index) {
                       final p = mencariPelanggan[index];
                       return Card(
-                        color: const Color.fromARGB(255, 48, 119, 50),
+                        color: Colors.brown,
                         elevation: 4,
                         margin: const EdgeInsets.symmetric(vertical: 8),
                         shape: RoundedRectangleBorder(
@@ -137,13 +135,7 @@ class _IndexPelangganState extends State<IndexPelanggan> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
-                                icon:
-                                    const Icon(Icons.edit, color: Colors.blue,shadows: [
-                                      Shadow(
-                                          color: Colors.white,
-                                          blurRadius: 5,
-                                          offset: Offset(2, 2))
-                                    ],),
+                                icon: const Icon(Icons.edit, color: Colors.blue),
                                 onPressed: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -152,13 +144,7 @@ class _IndexPelangganState extends State<IndexPelanggan> {
                                 ),
                               ),
                               IconButton(
-                                icon:
-                                    const Icon(Icons.delete, color: Colors.red, shadows: [
-                                      Shadow(
-                                          color: Colors.white,
-                                          blurRadius: 5,
-                                          offset: Offset(2, 2))
-                                    ],),
+                                icon: const Icon(Icons.delete, color: Colors.red),
                                 onPressed: () =>
                                     konfirmasiHapus(p['PelangganID']),
                               ),
@@ -174,7 +160,7 @@ class _IndexPelangganState extends State<IndexPelanggan> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(context,
             MaterialPageRoute(builder: (context) => const InsertPelanggan())),
-        backgroundColor: const Color.fromARGB(255, 48, 119, 50),
+        backgroundColor: Colors.brown,
         child: const Icon(Icons.add, color: Colors.white),
       ),
     );
