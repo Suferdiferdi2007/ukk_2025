@@ -67,12 +67,12 @@ class _InsertProdukState extends State<InsertProduk> {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text('Tambah Produk', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.brown, // Coklat tua untuk kesan elegan
+        backgroundColor: Color.fromARGB(255, 34, 1, 220), // Coklat tua untuk kesan elegan
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            colors: [Color.fromARGB(255, 34, 1, 220), Color.fromARGB(255, 34, 1, 220)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -92,7 +92,7 @@ class _InsertProdukState extends State<InsertProduk> {
                 ElevatedButton(
                   onPressed: simpan,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.brown, // Coklat kopi
+                    backgroundColor: Color.fromARGB(255, 34, 1, 220), // Coklat kopi
                     padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 30),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
@@ -120,14 +120,14 @@ Widget _textField(TextEditingController controller, String label, {bool isNumber
     inputFormatters: isNumber ? [FilteringTextInputFormatter.digitsOnly] : [],
     decoration: InputDecoration(
       labelText: label,
-      labelStyle: TextStyle(color: Colors.brown.shade700), // Warna label coklat gelap
+      labelStyle: TextStyle(color: Color.fromARGB(255, 34, 1, 220)), // Warna label coklat gelap
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: Colors.brown.shade600), // Outline warna coklat
+        borderSide: BorderSide(color: Color.fromARGB(255, 34, 1, 220)), // Outline warna coklat
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: Colors.brown.shade800), // Warna lebih gelap saat fokus
+        borderSide: BorderSide(color: Color.fromARGB(255, 34, 1, 220)), // Warna lebih gelap saat fokus
       ),
       filled: true,
       fillColor: Colors.white, // Background input tetap putih agar kontras

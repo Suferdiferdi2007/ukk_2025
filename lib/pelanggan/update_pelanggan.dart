@@ -67,7 +67,7 @@ class _UpdatePelangganState extends State<UpdatePelanggan> {
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromARGB(255, 34, 1, 220),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
@@ -76,7 +76,7 @@ class _UpdatePelangganState extends State<UpdatePelanggan> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            colors: [Color.fromARGB(255, 87, 67, 199), Color.fromARGB(255, 105, 88, 205)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -96,7 +96,7 @@ class _UpdatePelangganState extends State<UpdatePelanggan> {
               ElevatedButton(
                 onPressed: updatePelanggan,
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.brown),
+                    backgroundColor: Color.fromARGB(255, 34, 1, 220)),
                 child:
                     const Text('Update', style: TextStyle(color: Colors.white)),
               ),
@@ -121,7 +121,7 @@ class _UpdatePelangganState extends State<UpdatePelanggan> {
         border: const OutlineInputBorder(),
         suffixIcon: isPassword
             ? IconButton(
-                icon: Icon(Icons.visibility, color: Colors.brown),
+                icon: Icon(Icons.visibility, color: Color.fromARGB(255, 34, 1, 220)),
                 onPressed: () {},
               )
             : null,

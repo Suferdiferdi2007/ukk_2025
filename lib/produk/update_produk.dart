@@ -67,7 +67,7 @@ class _UpdateProdukState extends State<UpdateProduk> {
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromARGB(255, 34, 1, 220),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
@@ -76,7 +76,7 @@ class _UpdateProdukState extends State<UpdateProduk> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            colors: [Color.fromARGB(255, 34, 1, 220), Color.fromARGB(255, 34, 1, 220)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -96,7 +96,7 @@ class _UpdateProdukState extends State<UpdateProduk> {
               ElevatedButton(
                 onPressed: updateProduk,
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.brown),
+                    backgroundColor: Color.fromARGB(255, 34, 1, 220)),
                 child:
                     const Text('Update', style: TextStyle(color: Colors.white)),
               ),
@@ -122,7 +122,7 @@ class _UpdateProdukState extends State<UpdateProduk> {
             ? IconButton(
                 icon: Icon(
                   Icons.visibility,
-                  color: Colors.brown,
+                  color: Color.fromARGB(255, 34, 1, 220),
                 ),
                 onPressed: () {},
               )

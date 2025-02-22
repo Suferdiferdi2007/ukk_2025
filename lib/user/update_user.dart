@@ -65,7 +65,7 @@ class _UpdateUserState extends State<UpdateUser> {
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.brown.shade700,
+        backgroundColor: Color.fromARGB(255, 34, 1, 220),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
@@ -74,7 +74,7 @@ class _UpdateUserState extends State<UpdateUser> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            colors: [Color.fromARGB(255, 34, 1, 220), Color.fromARGB(255, 34, 1, 220)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -92,7 +92,7 @@ class _UpdateUserState extends State<UpdateUser> {
               ElevatedButton(
                 onPressed: updatePelanggan,
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.brown.shade500),
+                    backgroundColor: Color.fromARGB(255, 34, 1, 220)),
                 child:
                     const Text('Update', style: TextStyle(color: Colors.white)),
               ),
@@ -111,13 +111,13 @@ class _UpdateUserState extends State<UpdateUser> {
         filled: true,
         fillColor: Colors.white,
         labelText: label,
-        labelStyle: TextStyle(color: Colors.brown.shade700),
+        labelStyle: TextStyle(color: Color.fromARGB(255, 34, 1, 220)),
         border: const OutlineInputBorder(),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.brown.shade500),
+          borderSide: BorderSide(color: Color.fromARGB(255, 34, 1, 220)),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.brown.shade300),
+          borderSide: BorderSide(color: Color.fromARGB(255, 34, 1, 220)),
         ),
       ),
       validator: (value) => value!.isEmpty ? '$label tidak boleh kosong' : null,

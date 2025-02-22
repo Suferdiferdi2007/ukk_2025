@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.brown.shade800,
+        backgroundColor: Color.fromARGB(230, 41, 3, 255),
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
           'Bubblelicious Cafe',
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(color: Colors.brown.shade800),
+              decoration: BoxDecoration(color: Color.fromARGB(255, 34, 1, 220)),
               child: ListTile(
                 leading: const Icon(Icons.arrow_back_ios, color: Colors.white),
                 title: const Text(
@@ -55,8 +55,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.people, color: Colors.brown.shade800),
-              title: Text('User', style: TextStyle(color: Colors.brown.shade800)),
+              leading: Icon(Icons.people, color: Color.fromARGB(255, 34, 1, 220)),
+              title: Text('User', style: TextStyle(color: Color.fromARGB(255, 34, 1, 220))),
               onTap: () {
                 Navigator.push(
                   context,
@@ -65,8 +65,8 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.logout, color: Colors.brown.shade800),
-              title: Text('Logout', style: TextStyle(color: Colors.brown.shade800)),
+              leading: Icon(Icons.logout, color: Color.fromARGB(255, 34, 1, 220)),
+              title: Text('Logout', style: TextStyle(color: Color.fromARGB(255, 34, 1, 220))),
               onTap: () {
                 Navigator.pushAndRemoveUntil(
                   context,
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
         currentIndex: selectedIndex,
         onTap: onTabTapped,
         selectedItemColor: Colors.white,
-        backgroundColor: Colors.brown.shade800,
+        backgroundColor: Color.fromARGB(255, 34, 1, 220),
         unselectedItemColor: Colors.white70,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.folder), label: 'Detail Penjualan'),

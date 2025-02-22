@@ -92,9 +92,9 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
               decoration: InputDecoration(
                 labelText: "Cari Penjualan...",
                 labelStyle:
-                    const TextStyle(color: Colors.brown),
+                    const TextStyle(color: Color.fromARGB(255, 34, 1, 220)),
                 prefixIcon: const Icon(Icons.search,
-                    color: Colors.brown),
+                    color: Color.fromARGB(255, 34, 1, 220)),
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
@@ -108,7 +108,7 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Colors.brown),
+                          color: Color.fromARGB(255, 34, 1, 220)),
                     ),
                   )
                 : ListView.builder(
@@ -120,7 +120,7 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
                           pen['pelanggan']?['NamaPelanggan'] ?? 'Tidak tersedia';
 
                       return Card(
-                        color: Colors.brown,
+                        color: Color.fromARGB(255, 34, 1, 220),
                         elevation: 4,
                         margin: const EdgeInsets.symmetric(vertical: 8),
                         shape: RoundedRectangleBorder(
@@ -132,7 +132,7 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
                               Checkbox(
                                 value: dipilihItem[index],
                                 activeColor: Colors.white,
-                                checkColor: Colors.brown,
+                                checkColor: Color.fromARGB(255, 34, 1, 220),
                                 side: const BorderSide(color: Colors.white, width: 2),
                                 onChanged: (bool? value) {
                                   setState(() {
@@ -200,7 +200,7 @@ class _IndexPenjualanState extends State<IndexPenjualan> {
                 },
                 child: const Text('Checkout',
                     style: TextStyle(
-                        fontSize: 18, color: Colors.brown)),
+                        fontSize: 18, color: Color.fromARGB(255, 34, 1, 220))),
               ),
             ),
         ],

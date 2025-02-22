@@ -53,12 +53,12 @@ class _InsertUserState extends State<InsertUser> {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text('Tambah User', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromARGB(255, 34, 1, 220),
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            colors: [Color.fromARGB(255, 34, 1, 220), Color.fromARGB(255, 34, 1, 220)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -76,7 +76,7 @@ class _InsertUserState extends State<InsertUser> {
               ElevatedButton(
                 onPressed: simpan,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.brown,
+                  backgroundColor: Color.fromARGB(255, 34, 1, 220),
                   padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
@@ -100,7 +100,7 @@ Widget _textField(TextEditingController controller, String label,
     inputFormatters: isNumber ? [FilteringTextInputFormatter.digitsOnly] : [],
     decoration: InputDecoration(
       labelText: label,
-      labelStyle: const TextStyle(color: Colors.brown),
+      labelStyle: const TextStyle(color: Color.fromARGB(255, 34, 1, 220)),
       filled: true,
       fillColor: Colors.white,
       border: OutlineInputBorder(

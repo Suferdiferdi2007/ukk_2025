@@ -84,8 +84,8 @@ class _IndexProdukState extends State<IndexProduk> {
               controller: cariController,
               decoration: InputDecoration(
                 labelText: "Cari Produk...",
-                labelStyle: const TextStyle(color: Colors.brown),
-                prefixIcon: const Icon(Icons.search, color: Colors.brown),
+                labelStyle: const TextStyle(color: Color.fromARGB(255, 34, 1, 220)),
+                prefixIcon: const Icon(Icons.search, color: Color.fromARGB(255, 34, 1, 220)),
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
             ),
@@ -95,7 +95,7 @@ class _IndexProdukState extends State<IndexProduk> {
                 ? const Center(
                     child: Text(
                       'Tidak Ada Data Produk',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.brown),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 34, 1, 220)),
                     ),
                   )
                 : ListView.builder(
@@ -106,7 +106,7 @@ class _IndexProdukState extends State<IndexProduk> {
                       return GestureDetector(
                         onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Order(produk: p))),
                         child: Card(
-                          color: Colors.brown,
+                          color: Color.fromARGB(255, 34, 1, 220),
                           elevation: 4,
                           margin: const EdgeInsets.symmetric(vertical: 8),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -126,7 +126,7 @@ class _IndexProdukState extends State<IndexProduk> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 IconButton(
-                                  icon: const Icon(Icons.edit, color: Colors.blue),
+                                  icon: const Icon(Icons.edit, color: Color.fromARGB(255, 18, 158, 0)),
                                   onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateProduk(ProdukID: p['ProdukID'] ?? 0))),
                                 ),
                                 IconButton(
@@ -145,7 +145,7 @@ class _IndexProdukState extends State<IndexProduk> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const InsertProduk())),
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromARGB(255, 34, 1, 220),
         child: const Icon(Icons.add, color: Colors.white),
       ),
     );

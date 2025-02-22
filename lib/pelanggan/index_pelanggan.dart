@@ -83,8 +83,8 @@ class _IndexPelangganState extends State<IndexPelanggan> {
               controller: cari,
               decoration: InputDecoration(
                 labelText: "Cari Pelanggan...",
-                labelStyle: const TextStyle(color: Colors.brown),
-                prefixIcon: const Icon(Icons.search, color: Colors.brown),
+                labelStyle: const TextStyle(color: Color.fromARGB(255, 34, 1, 220)),
+                prefixIcon: const Icon(Icons.search, color: Color.fromARGB(255, 34, 1, 220)),
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
@@ -98,7 +98,7 @@ class _IndexPelangganState extends State<IndexPelanggan> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Colors.brown),
+                          color: Color.fromARGB(255, 34, 1, 220)),
                     ),
                   )
                 : ListView.builder(
@@ -107,7 +107,7 @@ class _IndexPelangganState extends State<IndexPelanggan> {
                     itemBuilder: (context, index) {
                       final p = mencariPelanggan[index];
                       return Card(
-                        color: Colors.brown,
+                        color: Color.fromARGB(255, 34, 1, 220),
                         elevation: 4,
                         margin: const EdgeInsets.symmetric(vertical: 8),
                         shape: RoundedRectangleBorder(
@@ -135,7 +135,7 @@ class _IndexPelangganState extends State<IndexPelanggan> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
-                                icon: const Icon(Icons.edit, color: Colors.blue),
+                                icon: const Icon(Icons.edit, color: Color.fromARGB(255, 18, 158, 0)),
                                 onPressed: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -160,7 +160,7 @@ class _IndexPelangganState extends State<IndexPelanggan> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(context,
             MaterialPageRoute(builder: (context) => const InsertPelanggan())),
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromARGB(255, 34, 1, 220),
         child: const Icon(Icons.add, color: Colors.white),
       ),
     );

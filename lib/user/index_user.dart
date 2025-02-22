@@ -62,7 +62,7 @@ class _IndexUserState extends State<IndexUser> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromARGB(255, 34, 1, 220),
         title: const Text("Daftar User", style: TextStyle(color: Colors.white)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
@@ -79,7 +79,7 @@ class _IndexUserState extends State<IndexUser> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Colors.brown),
+                          color: Color.fromARGB(255, 34, 1, 220)),
                     ),
                   )
                 : ListView.builder(
@@ -88,7 +88,7 @@ class _IndexUserState extends State<IndexUser> {
                     itemBuilder: (context, index) {
                       final p = user[index];
                       return Card(
-                        color: Colors.brown,
+                        color: Color.fromARGB(255, 34, 1, 220),
                         elevation: 4,
                         margin: const EdgeInsets.symmetric(vertical: 8),
                         shape: RoundedRectangleBorder(
@@ -115,7 +115,7 @@ class _IndexUserState extends State<IndexUser> {
                               IconButton(
                                 icon: const Icon(
                                   Icons.edit,
-                                  color: Colors.blue,
+                                  color: Color.fromARGB(255, 18, 158, 0),
                                   shadows: [
                                     Shadow(
                                         color: Colors.white,
@@ -155,7 +155,7 @@ class _IndexUserState extends State<IndexUser> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(context,
             MaterialPageRoute(builder: (context) => const InsertUser())),
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromARGB(255, 34, 1, 220),
         child: const Icon(Icons.add, color: Colors.white),
       ),
     );

@@ -19,22 +19,22 @@ class _InsertPelangganState extends State<InsertPelanggan> {
 
   Future<void> simpan() async {
     if (formKey.currentState!.validate()) {
-      final simpan = await supabase
-          .from('pelanggan')
-          .select('NamaPelanggan')
-          .eq('NamaPelanggan', nama.text)
-          .maybeSingle();
+      // final simpan = await supabase
+      //     .from('pelanggan')
+      //     .select('NamaPelanggan')
+      //     .eq('NamaPelanggan', nama.text)
+      //     .maybeSingle();
 
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Data berhasil disimpan')));
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //     const SnackBar(content: Text('Data berhasil disimpan')));
 
-      if (simpan != null) {
-        // Untuk menampilkan pesan error jika data sudah ada
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Tidak boleh ada data ganda!')),
-        );
-        return;
-      }
+      // if (simpan != null) {
+      //   // Untuk menampilkan pesan error jika data sudah ada
+      //   ScaffoldMessenger.of(context).showSnackBar(
+      //     const SnackBar(content: Text('Tidak boleh ada data ganda!')),
+      //   );
+      //   return;
+      // }
 
       // Untuk menyimpan data jika data belum ada
       await supabase.from('pelanggan').insert({
@@ -58,12 +58,12 @@ class _InsertPelangganState extends State<InsertPelanggan> {
         ),
         title: const Text('Tambah Pelanggan',
             style: TextStyle(color: Colors.white)),
-        backgroundColor:  Colors.brown,
+        backgroundColor:  Color.fromARGB(255, 34, 1, 220),
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.brown.shade200, Colors.brown.shade100],
+            colors: [Color.fromARGB(255, 87, 67, 199), Color.fromARGB(255, 105, 88, 205)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -85,7 +85,7 @@ class _InsertPelangganState extends State<InsertPelanggan> {
               ElevatedButton(
                 onPressed: simpan,
                 style: ElevatedButton.styleFrom(
-                    backgroundColor:  Colors.brown),
+                    backgroundColor:  Color.fromARGB(255, 34, 1, 220)),
                 child:
                     const Text('Simpan', style: TextStyle(color: Colors.white)),
               ),
@@ -112,7 +112,7 @@ Widget _textField(TextEditingController controller, String label,
         labelText: label,
         border: const OutlineInputBorder(),
         suffixIcon: label.toLowerCase().contains("password")
-            ? Icon(Icons.visibility, color: Colors.brown)
+            ? Icon(Icons.visibility, color: Color.fromARGB(255, 34, 1, 220))
             : null,
       ),
       validator: (value) =>

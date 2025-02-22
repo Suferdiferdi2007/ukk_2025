@@ -5,8 +5,9 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Supabase.initialize(
-    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndicXB3YnJ6bXVrYWR2cWl1bnJpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0MTA5OTMsImV4cCI6MjA1NDk4Njk5M30.Jvm32OQkKVVM73KSdEvfAkExD_f6y5KQOjyWxLEPEX4",
-    url: "https://wbqpwbrzmukadvqiunri.supabase.co",
+    anonKey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVqem5sd3NxemV0cndsdnNkcmFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxMzM1NTgsImV4cCI6MjA1NTcwOTU1OH0.sowuNhu3RA0qICG5bkIiEH7QRWbkxS4kGUx34yp8Hkk",
+    url: "https://ujznlwsqzetrwlvsdrab.supabase.co",
   );
   runApp(const MyApp());
 }
@@ -49,10 +50,15 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     try {
-      final data = await _supabase.from('user').select('Username, Password').eq('Username', user).maybeSingle();
+      final data = await _supabase
+          .from('user')
+          .select('Username, Password')
+          .eq('Username', user)
+          .maybeSingle();
       if (data != null && data['Password'] == pass) {
         _showSnackbar('Login berhasil!');
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const HomePage()));
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (_) => const HomePage()));
       } else {
         _showSnackbar('Username atau password salah');
       }
@@ -62,7 +68,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _showSnackbar(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -71,7 +78,11 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.brown.shade900, Colors.brown.shade500, Colors.brown.shade300],
+            colors: [
+              Color.fromARGB(255, 34, 1, 220),
+              Color.fromARGB(255, 68, 34, 220),
+              Color.fromARGB(255, 125, 118, 197)
+            ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -83,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Bubblelicious Cafe',
+                  'Toko Alat Pancing',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 32,
@@ -100,18 +111,19 @@ class _LoginPageState extends State<LoginPage> {
                 _textField(
                   controller: _passwordCtrl,
                   hintText: 'Password',
-                  icon: Icons.lock, 
+                  icon: Icons.lock,
                   isPassword: true,
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    foregroundColor: Colors.brown,
+                    foregroundColor: Color.fromARGB(255, 34, 1, 220),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 50),
                   ),
                   onPressed: _handleLogin,
                   child: const Text(
@@ -136,16 +148,16 @@ class _LoginPageState extends State<LoginPage> {
     return TextField(
       controller: controller,
       obscureText: isPassword ? !_isPasswordVisible : false,
-      style: const TextStyle(color: Colors.brown),
+      style: const TextStyle(color: Color.fromARGB(255, 34, 1, 220)),
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.brown),
-        prefixIcon: Icon(icon, color: Colors.brown.withOpacity(0.3)),
+        hintStyle: const TextStyle(color: Color.fromARGB(255, 34, 1, 220)),
+        prefixIcon: Icon(icon, color: Color.fromARGB(255, 34, 1, 220).withOpacity(0.3)),
         suffixIcon: isPassword
             ? IconButton(
                 icon: Icon(
                   _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                  color: Colors.brown,
+                  color: Color.fromARGB(255, 34, 1, 220),
                 ),
                 onPressed: () {
                   setState(() {

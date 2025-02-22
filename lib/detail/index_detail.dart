@@ -60,8 +60,8 @@ class _IndexDetailState extends State<IndexDetail> {
               controller: cariController,
               decoration: InputDecoration(
                 labelText: "Cari Detail...",
-                labelStyle: const TextStyle(color: Colors.brown),
-                prefixIcon: const Icon(Icons.search, color: Colors.brown),
+                labelStyle: const TextStyle(color: Color.fromARGB(255, 34, 1, 220)),
+                prefixIcon: const Icon(Icons.search, color: Color.fromARGB(255, 34, 1, 220)),
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
             ),
@@ -74,7 +74,7 @@ class _IndexDetailState extends State<IndexDetail> {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.brown,
+                        color: Color.fromARGB(255, 34, 1, 220),
                       ),
                     ),
                   )
@@ -84,7 +84,7 @@ class _IndexDetailState extends State<IndexDetail> {
                     itemBuilder: (context, index) {
                       final detail = filteredDetailList[index];
                       return Card(
-                        color: Colors.brown,
+                        color: Color.fromARGB(255, 34, 1, 220),
                         elevation: 2, // Mengurangi shadow agar lebih kecil
                         margin: const EdgeInsets.symmetric(vertical: 4), // Mengurangi jarak antar card
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)), // Card lebih kecil
